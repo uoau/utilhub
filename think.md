@@ -37,3 +37,6 @@ loadImg('http://123')
 
 
 
+import { loadImg } from 'utils-hub/loadImg';
+
+222
