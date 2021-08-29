@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 /*funstart*/
 function hello(url){
-    console.log(2121244422233333311);
+    console.log('我是天才');
     return new Promise((resolve,reject) => {
         const img = new Image();
         img.src = url;
