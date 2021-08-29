@@ -5,6 +5,10 @@ const git = simpleGit();
 const dayjs = require('dayjs');
 
 (async ()=>{
+    // 变量
+    const npmDir = path.join(__dirname, '../../utils-hub-npm');
+    const serverdbDir = path.join(__dirname, '../../utils-hub-serverdb');
+    
     // 获取最新一次提交的文件列表
     const logs = await git.log(['--oneline', '-1']);
     const lastLogId = logs.all[0].hash.split(' ')[0];
@@ -44,7 +48,8 @@ const dayjs = require('dayjs');
         const info = JSON.stringify(fields);
         const newFileContent = formatExportFun(info, funName, content);
         const nowDate = dayjs().format('YYYYMMDD');
-        fs.writeFileSync(path.join(__dirname, `../lib/${funName}-${nowDate}.js`), newFileContent);
+        fs.writeFileSync(path.join(npmDir, `${funName}-${nowDate}.js`), newFileContent);
+        fs.writeFileSync(path.join(serverdbDir, `${funName}-${nowDate}.js`), newFileContent);
     }
 })();
 

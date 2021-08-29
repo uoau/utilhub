@@ -9,6 +9,7 @@
  */
 
 function loadImgSync(url){
+    console.log(123);
     return new Promise((resolve,reject) => {
         const img = new Image();
         img.src = url;
