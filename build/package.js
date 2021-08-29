@@ -37,9 +37,29 @@ const uglifyJs = require("uglify-js");
         const pp = path.join(__dirname, '../', dirName);
         // 获取文件更新内容
         const updateContent = await git.show([lastLogId, pp]);
-        console.log('updateContent', updateContent);
         const changeContent = updateContent.match(/@@[^@]*@@([\s\S]*)$/)[1];
-        const changeLines = changeContent.match(/[-+]\s+([^\s]*)/g);
+        const changeLines = changeContent.split(/[\r\n]/).filter(i => {
+            return /^[-+]+[^\r\n]*$/.test(i);
+        });
+        console.log(changeLines);
+        let funHasChange = false;
+        for(let i =0; i< changeLines.length; i++) {
+            const line = changeLines[i];
+            let isUnuseLine = false;
+            if(/\*\s*@[^:]:/.test(line)){
+                // 属性行
+                isUnuseLine = true;
+            }
+            if(/^[-+]+\s*$/.test(line)){
+                // 空行
+                isUnuseLine = true;
+            }
+            if(!isUnuseLine) {
+                funHasChange = true;
+                break;
+            }
+        }
+        console.log('函数内容发送改变', funHasChange);
 
         // 解析文件内容
         const fileContent = fs.readFileSync(pp, 'utf-8');
