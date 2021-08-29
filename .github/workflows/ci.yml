@@ -16,21 +16,21 @@ jobs:
         with:
           repository: uoau/utilshub
           ref: master
-          path: utilshub
+          path: ./utilshub
         
       - name: 克隆 npm 分支
         uses: actions/checkout@v2
         with:
           repository: uoau/utilshub
           ref: npm
-          path: utilshub-npm
+          path: ./utilshub-npm
       
       - name: 克隆 serverdb 分支
         uses: actions/checkout@v2
         with:
           repository: uoau/utilshub
           ref: serverdb
-          path: utilshub-serverdb
+          path: ./utilshub-serverdb
 
       - name: 安装 node
         uses: actions/setup-node@v1

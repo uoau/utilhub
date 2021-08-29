@@ -7,6 +7,7 @@ const dayjs = require('dayjs');
 (async ()=>{
     // 变量
     console.log(__dirname, '__dirname');
+    console.log(path.join(__dirname, '../'));
     const npmDir = path.join(__dirname, '../../utilshub-npm');
     const serverdbDir = path.join(__dirname, '../../utilshub-serverdb');
     
