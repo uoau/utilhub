@@ -18,6 +18,7 @@ jobs:
       # 安装和构建
       - name: Install and Build
         run: |
+            npm i
             npm run build
 
       - name: Update dist folder to repository
