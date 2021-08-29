@@ -3,6 +3,9 @@ const path = require('path');
 const simpleGit = require('simple-git');
 const git = simpleGit();
 const dayjs = require('dayjs');
+const babel = require("@babel/core");
+const babelConfig = require('../babel.config.json');
+const uglifyJs = require("uglify-js");
 
 (async ()=>{
     // 变量
@@ -32,6 +35,12 @@ const dayjs = require('dayjs');
         if(!['M','A'].includes(updatedFiles[i].type)) continue;
         const dirName = updatedFiles[i].file;
         const pp = path.join(__dirname, '../', dirName);
+        // 获取文件更新内容
+        const updateContent = await git.show([lastLogId, pp]);
+        console.log('updateContent', updateContent);
+        const changeContent = updateContent.match(/@@[^@]*@@([\s\S]*)$/)[1];
+        const changeLines = changeContent.match(/[-+]\s+([^\s]*)/g);
+
         // 解析文件内容
         const fileContent = fs.readFileSync(pp, 'utf-8');
         // 解析文件
@@ -48,14 +57,16 @@ const dayjs = require('dayjs');
         const info = JSON.stringify(fields);
         const newFileContent = formatExportFun(info, funName, content);
         const nowDate = dayjs().format('YYYYMMDD');
-        fs.writeFileSync(path.join(npmDir, `${funName}-${nowDate}.js`), newFileContent);
+        let code = (await babel.transformSync(`${content};export default ${funName};`, babelConfig)).code; 
+        code = uglifyJs.minify(code).code;
+        fs.writeFileSync(path.join(npmDir, `${funName}-${nowDate}.js`), code);
         fs.writeFileSync(path.join(serverdbDir, `${funName}-${nowDate}.js`), newFileContent);
     }
 })();
 
 
 function formatExportFun(info, exportFunName, funText){
-    const str = `/*infostart${info}infoend*/
+    const str = `${info ? '/*infostart' + info + 'infoend*/' : ''}
 "use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true

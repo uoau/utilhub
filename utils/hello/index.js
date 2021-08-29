@@ -6,10 +6,13 @@
  * @desc-zh:  描述描述
  * @tags:     img\file
  * @usage:    这是用法
+ * @ssss:     你好啊
  */
 
 function hello(url){
     console.log('我是天才');
+    const a = {};
+    const b = a?.name;
     return new Promise((resolve,reject) => {
         const img = new Image();
         img.src = url;
