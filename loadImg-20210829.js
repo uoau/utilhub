@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 /*funstart*/
 function loadImgSync(url){
-    console.log(1235);
+    console.log(12333333335);
     return new Promise((resolve,reject) => {
         const img = new Image();
         img.src = url;

@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 /*funstart*/
 function sleep(url){
-    console.log(1235);
+    console.log(1262446635);
     return new Promise((resolve,reject) => {
         const img = new Image();
         img.src = url;
