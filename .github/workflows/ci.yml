@@ -52,7 +52,7 @@ jobs:
         run: |
           ls
           cd utilshub && ls && npm i && npm run build
-          cd ../utilshub-npm && npm run update-version && npm publish
+          cd ../utilshub-npm && ls && npm run update-version && npm publish
           git config --global user.email "Action@GitHub.com"
           git config --global user.name "GitHub Action"
           git init && git add .
