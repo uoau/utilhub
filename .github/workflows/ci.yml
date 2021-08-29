@@ -10,30 +10,50 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      # 克隆仓库
+      - name: clone master
+        uses: actions/checkout@v2
+        with:
+          repository: uoau/utils-hub
+          ref: master
+          path: utils-hub-master
+        
+      - name: clone npm
+        uses: actions/checkout@v2
+        with:
+          repository: uoau/utils-hub
+          ref: npm
+          path: utils-hub-npm
+      
+      - name: clone serverdb
+        uses: actions/checkout@v2
+        with:
+          repository: uoau/utils-hub
+          ref: serverdb
+          path: utils-hub-serverdb
+
       - uses: actions/setup-node@v1
         with:
-            node-version: '14'
+          node-version: '14'
 
       # 安装和构建
-      - name: Install and Build
+      - name: build && package
         run: |
-            npm i
-            npm run build
+          ls
 
-      - name: Update dist folder to repository
-        env:
-            # 仓库用户名
-            REPO_USERNAME: "uoau"
-            # GitHub Pages仓库名
-            DIST_REPO: "utils-hub"
-            # GitHub Token
-            GITHUB_TOKEN: ${{ secrets.G_TOKEN }}
+      # - name: Update dist folder to repository
+      #   env:
+      #       # 仓库用户名
+      #       REPO_USERNAME: "uoau"
+      #       # GitHub Pages仓库名
+      #       DIST_REPO: "utils-hub"
+      #       # GitHub Token
+      #       GITHUB_TOKEN: ${{ secrets.G_TOKEN }}
 
-        run: |
-            git config --global user.email "Action@GitHub.com"
-            git config --global user.name "GitHub Action"
+      #   run: |
+      #       git config --global user.email "Action@GitHub.com"
+      #       git config --global user.name "GitHub Action"
 
-            git init && git add .
-            git commit -m "GitHub Actions Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
-            git push --force --quiet "https://$GITHUB_TOKEN@github.com/$REPO_USERNAME/$DIST_REPO.git" master:master
+      #       git init && git add .
+      #       git commit -m "GitHub Actions Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
+      #       git push --force --quiet "https://$GITHUB_TOKEN@github.com/$REPO_USERNAME/$DIST_REPO.git" master:master
