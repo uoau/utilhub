@@ -7,6 +7,7 @@
  * @tags:     img\file
  * @usage:    这是用法
  */
+
 function loadImgSync(url){
     return new Promise((resolve,reject) => {
         const img = new Image();
