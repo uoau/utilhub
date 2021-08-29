@@ -2,20 +2,19 @@
   "name": "utilshub",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "build": "node build/package.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uoau/utils-hub.git"
+    "url": "git+https://github.com/uoau/utilshub.git"
   },
-  "author": "",
+  "author": "XuX",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/uoau/utils-hub/issues"
+    "url": "https://github.com/uoau/utilshub/issues"
   },
-  "homepage": "https://github.com/uoau/utils-hub#readme",
+  "homepage": "https://github.com/uoau/utilshub#readme",
   "devDependencies": {
     "dayjs": "^1.10.6",
     "simple-git": "^2.45.0"

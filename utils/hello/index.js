@@ -9,7 +9,7 @@
  */
 
 function hello(url){
-    console.log(2);
+    console.log(21111);
     return new Promise((resolve,reject) => {
         const img = new Image();
         img.src = url;

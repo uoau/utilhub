@@ -11,49 +11,53 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # 克隆仓库
-      - name: clone master
+      - name: 克隆 master 分支
         uses: actions/checkout@v2
         with:
           repository: uoau/utilshub
           ref: master
           path: utilshub-master
         
-      - name: clone npm
+      - name: 克隆 npm 分支
         uses: actions/checkout@v2
         with:
           repository: uoau/utilshub
           ref: npm
           path: utilshub-npm
       
-      - name: clone serverdb
+      - name: 克隆 serverdb 分支
         uses: actions/checkout@v2
         with:
           repository: uoau/utilshub
           ref: serverdb
           path: utilshub-serverdb
 
-      - uses: actions/setup-node@v1
+      - name: 安装 node
+        uses: actions/setup-node@v1
         with:
           node-version: '14'
 
       # 安装和构建
-      - name: build && package
+      - name: npm/serverdb分支自动构建
+        env:
+          # 仓库用户名
+          REPO_USERNAME: "uoau"
+          # GitHub Pages仓库名
+          DIST_REPO: "utils-hub"
+          # GitHub Token
+          GITHUB_TOKEN: ${{ secrets.G_TOKEN }}
+          # NPM token
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           ls
-
-      # - name: Update dist folder to repository
-      #   env:
-      #       # 仓库用户名
-      #       REPO_USERNAME: "uoau"
-      #       # GitHub Pages仓库名
-      #       DIST_REPO: "utils-hub"
-      #       # GitHub Token
-      #       GITHUB_TOKEN: ${{ secrets.G_TOKEN }}
-
-      #   run: |
-      #       git config --global user.email "Action@GitHub.com"
-      #       git config --global user.name "GitHub Action"
-
-      #       git init && git add .
-      #       git commit -m "GitHub Actions Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
-      #       git push --force --quiet "https://$GITHUB_TOKEN@github.com/$REPO_USERNAME/$DIST_REPO.git" master:master
+          cd utilshub && npm run build
+          cd ../utilshub-npm && npm run update-version && npm publish
+          git config --global user.email "Action@GitHub.com"
+          git config --global user.name "GitHub Action"
+          git init && git add .
+          git commit -m "npm branch updated $(date +'%Y-%m-%d %H:%M:%S')"
+          git push --force --quiet "https://$GITHUB_TOKEN@github.com/$REPO_USERNAME/$DIST_REPO.git" npm:npm
+          cd ../utilshub-serverdb
+          git commit -m "serverdb branch updated $(date +'%Y-%m-%d %H:%M:%S')"
+          git push --force --quiet "https://$GITHUB_TOKEN@github.com/$REPO_USERNAME/$DIST_REPO.git" npm:npm

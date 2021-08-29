@@ -9,7 +9,7 @@
  */
 
 function sleep(url){
-    console.log(1235);
+    console.log(1266635);
     return new Promise((resolve,reject) => {
         const img = new Image();
         img.src = url;
