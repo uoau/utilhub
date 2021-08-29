@@ -43,7 +43,7 @@ jobs:
           # 仓库用户名
           REPO_USERNAME: "uoau"
           # GitHub Pages仓库名
-          DIST_REPO: "utils-hub"
+          DIST_REPO: "utilshub"
           # GitHub Token
           GITHUB_TOKEN: ${{ secrets.G_TOKEN }}
           # NPM token
@@ -51,7 +51,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           ls
-          cd utilshub && npm i && npm run build
+          cd utilshub && ls && npm i && npm run build
           cd ../utilshub-npm && npm run update-version && npm publish
           git config --global user.email "Action@GitHub.com"
           git config --global user.name "GitHub Action"
