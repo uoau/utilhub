@@ -51,7 +51,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           ls
-          cd utilshub && npm run build
+          cd utilshub && npm i && npm run build
           cd ../utilshub-npm && npm run update-version && npm publish
           git config --global user.email "Action@GitHub.com"
           git config --global user.name "GitHub Action"
