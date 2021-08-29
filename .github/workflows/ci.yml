@@ -16,7 +16,7 @@ jobs:
         with:
           repository: uoau/utilshub
           ref: master
-          path: utilshub-master
+          path: utilshub
         
       - name: 克隆 npm 分支
         uses: actions/checkout@v2
