@@ -52,6 +52,7 @@ jobs:
           git config --global user.email "Action@GitHub.com"
           git config --global user.name "GitHub Action"
           cd ../utilshub-npm
+          npm run update-version
           git init && git add .
           git commit -m "npm branch updated $(date +'%Y-%m-%d %H:%M:%S')"
           git push --force --quiet "https://$GITHUB_TOKEN@github.com/$REPO_USERNAME/$DIST_REPO.git" npm:npm
@@ -63,7 +64,5 @@ jobs:
       - name: 发布npm包
         uses: JS-DevTools/npm-publish@v1
         with:
-          run: 
-            cd ../utilshub-npm && ls && npm run update-version
           package: ./utilshub-npm/package.json
           token: ${{ secrets.NPM_TOKEN }}
