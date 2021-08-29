@@ -6,8 +6,9 @@
  * @desc-zh:  描述描述
  * @tags:     img\file
  * @usage:    这是用法
- * @ssss:     你好啊12121212
+ * @ssss:     你好啊12121212121212
  */
+
 
 
 function hello(url){
