@@ -46,18 +46,24 @@ jobs:
           DIST_REPO: "utilshub"
           # GitHub Token
           GITHUB_TOKEN: ${{ secrets.G_TOKEN }}
-          # NPM token
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           ls
           cd utilshub && ls && npm i && npm run build
-          cd ../utilshub-npm && ls && npm run update-version && npm publish
           git config --global user.email "Action@GitHub.com"
           git config --global user.name "GitHub Action"
+          cd ../utilshub-npm
           git init && git add .
           git commit -m "npm branch updated $(date +'%Y-%m-%d %H:%M:%S')"
           git push --force --quiet "https://$GITHUB_TOKEN@github.com/$REPO_USERNAME/$DIST_REPO.git" npm:npm
           cd ../utilshub-serverdb
+          git init && git add .
           git commit -m "serverdb branch updated $(date +'%Y-%m-%d %H:%M:%S')"
-          git push --force --quiet "https://$GITHUB_TOKEN@github.com/$REPO_USERNAME/$DIST_REPO.git" npm:npm
+          git push --force --quiet "https://$GITHUB_TOKEN@github.com/$REPO_USERNAME/$DIST_REPO.git" serverdb:serverdb
+      
+      - name: 发布npm包
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          run: 
+            cd ../utilshub-npm && ls && npm run update-version
+          package: ./utilshub-npm/package.json
+          token: ${{ secrets.NPM_TOKEN }}
