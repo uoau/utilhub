@@ -41,17 +41,20 @@ const uglifyJs = require("uglify-js");
         const changeLines = changeContent.split(/[\r\n]/).filter(i => {
             return /^[-+]+[^\r\n]*$/.test(i);
         });
-        console.log(changeLines);
         let funHasChange = false;
         for(let i =0; i< changeLines.length; i++) {
             const line = changeLines[i];
             let isUnuseLine = false;
-            if(/\*\s*@[^:]:/.test(line)){
+            if(/\*\s*@[^:]*:/.test(line)){
                 // 属性行
                 isUnuseLine = true;
             }
             if(/^[-+]+\s*$/.test(line)){
                 // 空行
+                isUnuseLine = true;
+            }
+            if(/^[-+]+\s*\*\//.test(line.trim()) || /^[-+]+\s*\/\*/.test(line.trim())){
+                // 注释头尾
                 isUnuseLine = true;
             }
             if(!isUnuseLine) {
@@ -60,7 +63,6 @@ const uglifyJs = require("uglify-js");
             }
         }
         console.log('函数内容发送改变', funHasChange);
-
         // 解析文件内容
         const fileContent = fs.readFileSync(pp, 'utf-8');
         // 解析文件
@@ -72,14 +74,36 @@ const uglifyJs = require("uglify-js");
                 value: m[2].trim(),
             }
         });
+
+        let nowDate = dayjs().format('YYYYMMDD');
         const funName = dirName.split('/')[1];
+        const npmAllFilesNames = fs.readdirSync(npmDir);
+        if(!funHasChange) {
+            // 函数内容没有发生改变，直接覆盖在最后一次的文件上
+            const files = npmAllFilesNames
+                .filter(i => new RegExp(`${funName}-[0-9]+`).test(i))
+                .map(i=> {
+                    const date = i.match(/-([0-9]+)\.js/)[1];
+                    const value = dayjs(date).valueOf();
+                    return {
+                        filename: i,
+                        date,
+                        value,
+                    }
+                })
+                .sort((a, b) => {
+                    return b.value - a.value
+                });
+            nowDate = files[0].date;
+        }
         const content = match[2].trim();
         const info = JSON.stringify(fields);
         const newFileContent = formatExportFun(info, funName, content);
-        const nowDate = dayjs().format('YYYYMMDD');
-        let code = (await babel.transformSync(`${content};export default ${funName};`, babelConfig)).code; 
-        code = uglifyJs.minify(code).code;
-        fs.writeFileSync(path.join(npmDir, `${funName}-${nowDate}.js`), code);
+        if(funHasChange) {
+            let code = (await babel.transformSync(`${content};export default ${funName};`, babelConfig)).code; 
+            code = uglifyJs.minify(code).code;
+            fs.writeFileSync(path.join(npmDir, `${funName}-${nowDate}.js`), code);
+        }
         fs.writeFileSync(path.join(serverdbDir, `${funName}-${nowDate}.js`), newFileContent);
     }
 })();
