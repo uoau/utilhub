@@ -14,8 +14,8 @@ const dayjs = require('dayjs');
     const lastLogId = logs.all[0].hash.split(' ')[0];
     console.log('# commitId', lastLogId);
     const commitContent = await git.show([lastLogId, '--name-status', ]);
-    let updatedFiles = commitContent.match(/[DAU]\s+([^\s]*)/g);
-    updatedFiles = updatedFiles.map(i => {
+    let updatedFiles = commitContent.match(/[DAM]\s+([^\s]*)/g);
+    updatedFiles = (updatedFiles || []).map(i => {
         const arr = i.split(/\t/);
         return {
             type: arr[0],
@@ -27,12 +27,11 @@ const dayjs = require('dayjs');
 
     // 将有跟新的文件拷贝到lib库
     for(let i = 0; i<updatedFiles.length; i++) {
-        if(!['U','A'].includes(updatedFiles[i].type)) continue;
+        if(!['M','A'].includes(updatedFiles[i].type)) continue;
         const dirName = updatedFiles[i].file;
         const pp = path.join(__dirname, '../', dirName);
         // 解析文件内容
         const fileContent = fs.readFileSync(pp, 'utf-8');
-        // console.log(fileContent);
         // 解析文件
         const match = fileContent.match(/\/\*([\s\S]*)\*\/([\s\S]*)/);
         const fields = match[1].split(/[(\r\n)\r\n]+/).filter(i => i.trim()).map(i => {
@@ -43,7 +42,6 @@ const dayjs = require('dayjs');
             }
         });
         const funName = dirName.split('/')[1];
-        console.log(funName);
         const content = match[2].trim();
         const info = JSON.stringify(fields);
         const newFileContent = formatExportFun(info, funName, content);

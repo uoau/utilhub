@@ -14,23 +14,23 @@ jobs:
       - name: clone master
         uses: actions/checkout@v2
         with:
-          repository: uoau/utils-hub
+          repository: uoau/utilshub
           ref: master
-          path: utils-hub-master
+          path: utilshub-master
         
       - name: clone npm
         uses: actions/checkout@v2
         with:
-          repository: uoau/utils-hub
+          repository: uoau/utilshub
           ref: npm
-          path: utils-hub-npm
+          path: utilshub-npm
       
       - name: clone serverdb
         uses: actions/checkout@v2
         with:
-          repository: uoau/utils-hub
+          repository: uoau/utilshub
           ref: serverdb
-          path: utils-hub-serverdb
+          path: utilshub-serverdb
 
       - uses: actions/setup-node@v1
         with:
