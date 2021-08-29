@@ -6,8 +6,8 @@ const dayjs = require('dayjs');
 
 (async ()=>{
     // 变量
-    const npmDir = path.join(__dirname, '../../utils-hub-npm');
-    const serverdbDir = path.join(__dirname, '../../utils-hub-serverdb');
+    const npmDir = path.join(__dirname, '../../utilshub-npm');
+    const serverdbDir = path.join(__dirname, '../../utilshub-serverdb');
     
     // 获取最新一次提交的文件列表
     const logs = await git.log(['--oneline', '-1']);
