@@ -43,7 +43,7 @@ const uglifyJs = require("uglify-js");
         });
         let funHasChange = false;
         for(let i =0; i< changeLines.length; i++) {
-            const line = changeLines[i];
+            const line = changeLines[i].trim();
             let isUnuseLine = false;
             if(/\*\s*@[^:]*:/.test(line)){
                 // 属性行
@@ -53,8 +53,8 @@ const uglifyJs = require("uglify-js");
                 // 空行
                 isUnuseLine = true;
             }
-            if(/^[-+]+\s*\*\//.test(line.trim()) || /^[-+]+\s*\/\*/.test(line.trim())){
-                // 注释头尾
+            if(/^[-+]+\s*\*\//.test(line) || /^[-+]+\s*\/\*/.test(line) || /^[-+]+\s*\*/.test(line)){
+                // 注释头尾 /* */ *
                 isUnuseLine = true;
             }
             if(!isUnuseLine) {
@@ -111,15 +111,8 @@ const uglifyJs = require("uglify-js");
 
 function formatExportFun(info, exportFunName, funText){
     const str = `${info ? '/*infostart' + info + 'infoend*/' : ''}
-"use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = void 0;
 /*funstart*/
 ${funText}
-/*funend*/
-var _default = ${exportFunName};
-exports.default = _default;`;
+/*funend*/`;
     return str;
 }
