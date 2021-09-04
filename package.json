@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build": "node build/package.js",
-    "lint": "eslint --ext .js",
+    "lint": "eslint ./utils/**/index.js",
     "test": "jest"
   },
   "repository": {
@@ -23,17 +23,20 @@
     "@babel/preset-env": "^7.15.0",
     "@typescript-eslint/eslint-plugin": "^4.30.0",
     "@typescript-eslint/parser": "^4.30.0",
+    "babel-jest": "^27.1.0",
     "dayjs": "^1.10.6",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.24.2",
     "jest": "^27.1.0",
     "simple-git": "^2.45.0",
+    "typescript": "^4.4.2",
     "uglify-js": "^3.14.1"
   },
   "dependencies": {
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.15.0",
-    "@babel/preset-env": "^7.15.0"
+    "@babel/preset-env": "^7.15.0",
+    "core-js": "^3.17.2"
   }
 }

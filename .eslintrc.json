@@ -2,7 +2,8 @@
     "env": {
         "browser": true,
         "es2020": true,
-        "node": true
+        "node": true,
+        "jest": true
     },
     "extends": [
         "airbnb-base"
@@ -12,6 +13,7 @@
         "sourceType": "module"
     },
     "rules": {
-        "indent": ["error", 4]
+        "indent": ["error", 4],
+        "import/prefer-default-export": "off"
     }
 }

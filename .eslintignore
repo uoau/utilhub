@@ -1,1 +1,7 @@
 *.test.js
+/jest.config.js
+/build/*
+/.git
+/.github
+/.vscode
+/node_modules

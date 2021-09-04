@@ -1,0 +1,31 @@
+const fs = require('fs');
+const path = require('path');
+const simpleGit = require('simple-git');
+
+const dayjs = require('dayjs');
+const babel = require('@babel/core');
+const uglifyJs = require('uglify-js');
+const babelConfig = require('../babel.config.json');
+
+(async () => {
+    // 地址
+    const npmDir = path.join(__dirname, '../../utilshub-npm');
+
+    // 打包处理utils函数
+    const utilsDir = path.join(__dirname, '../utils');
+    const folders = fs.readdirSync(utilsDir);
+    for(let i = 0; i< folders.length; i++) {
+        const folder = folders[i];
+        const funName = folder;
+        // 文件内容
+        const indexjs = fs.readFileSync(path.join(utilsDir, folder, 'index.js'), 'utf-8');
+        // const indexjson = fs.readFileSync(path.join(utilsDir, folder, 'index.json'), 'utf-8');
+        const indexDts = fs.readFileSync(path.join(utilsDir, folder, 'index.d.ts'), 'utf-8');
+        const { code } = await babel.transformSync(indexjs, babelConfig);
+        const babelIndexJs = uglifyJs.minify(code).code;
+
+        // 放进npm分支
+        fs.writeFileSync(path.join(npmDir, `${funName}.js`), babelIndexJs);
+        fs.writeFileSync(path.join(npmDir, `${funName}.d.ts`), indexDts);
+    }
+})();
