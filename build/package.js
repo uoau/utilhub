@@ -9,6 +9,7 @@ const babelConfig = require('../babel.config.json');
 (async () => {
     // 地址
     const npmDir = path.join(__dirname, '../../utilshub-npm');
+    const masterDir = path.join(__dirname, '../../utilshub');
 
     // 打包处理utils函数
     const utilsDir = path.join(__dirname, '../utils');
@@ -24,7 +25,7 @@ const babelConfig = require('../babel.config.json');
         const babelIndexJs = uglifyJs.minify(code).code;
 
         // 放进npm分支
-        const utilshubPackage = eval(fs.readFileSync(path.join(utilsDir, 'package.json'), 'utf-8'));
+        const utilshubPackage = eval(fs.readFileSync(path.join(masterDir, 'package.json'), 'utf-8'));
         const utilshubNpmPackage = eval(fs.readFileSync(path.join(npmDir, 'package.json'), 'utf-8'));
         utilshubNpmPackage.version = utilshubPackage.version;
         fs.writeFileSync(path.join(npmDir, 'package.json'), JSON.stringify(utilshubNpmPackage, null, 2));
