@@ -6,9 +6,6 @@
     "type": "git",
     "url": "git+https://github.com/uoau/utilshub.git"
   },
-  "scripts": {
-    "update-version": "node scripts/update-version.js"
-  },
   "author": "XuX",
   "license": "ISC",
   "bugs": {
