@@ -45,7 +45,6 @@ jobs:
           git config --global user.email "Action@GitHub.com"
           git config --global user.name "GitHub Action"
           cd ../utilshub-npm
-          npm run update-version
           git init && git add .
           git commit -m "npm branch updated $(date +'%Y-%m-%d %H:%M:%S')"
           git push --force --quiet "https://$GITHUB_TOKEN@github.com/$REPO_USERNAME/$DIST_REPO.git" npm:npm
