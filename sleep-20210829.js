@@ -1,1 +1,0 @@
-"use strict";function sleep(s){return console.log(1262446635),new Promise(function(e,o){var r=new Image;r.src=s,r.onload=function(){e(r)},r.onerror=function(){o()}})}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0,require("core-js/modules/es.object.to-string.js"),require("core-js/modules/es.promise.js");var _default=sleep;exports.default=_default;

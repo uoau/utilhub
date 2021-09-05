@@ -1,1 +1,0 @@
-"use strict";function hello(s){console.log("我是天才啊123");return new Promise(function(e,o){var r=new Image;r.src=s,r.onload=function(){e(r)},r.onerror=function(){o()}})}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0,require("core-js/modules/es.object.to-string.js"),require("core-js/modules/es.promise.js");var _default=hello;exports.default=_default;
