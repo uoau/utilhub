@@ -1,0 +1,1 @@
+"use strict";function sleep(s){return new Promise(function(e){setTimeout(function(){e()},s)})}function sleep2(s){return new Promise(function(e){setTimeout(function(){e()},s)})}Object.defineProperty(exports,"__esModule",{value:!0}),exports.sleep=sleep,exports.sleep2=sleep2,require("core-js/modules/es.object.to-string.js"),require("core-js/modules/es.promise.js");
