@@ -25,8 +25,8 @@ const babelConfig = require('../babel.config.json');
         const babelIndexJs = uglifyJs.minify(code).code;
 
         // 放进npm分支
-        const utilshubPackage = eval(fs.readFileSync(path.join(masterDir, 'package.json'), 'utf-8'));
-        const utilshubNpmPackage = eval(fs.readFileSync(path.join(npmDir, 'package.json'), 'utf-8'));
+        const utilshubPackage = require(path.join(masterDir, 'package.json'));
+        const utilshubNpmPackage = require(path.join(npmDir, 'package.json'));
         utilshubNpmPackage.version = utilshubPackage.version;
         fs.writeFileSync(path.join(npmDir, 'package.json'), JSON.stringify(utilshubNpmPackage, null, 2));
         fs.writeFileSync(path.join(npmDir, `${funName}.js`), babelIndexJs);
