@@ -1,0 +1,18 @@
+{
+  "name": "utilshub",
+  "version": "1.0.19",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uoau/utilshub.git"
+  },
+  "scripts": {
+    "update-version": "node scripts/update-version.js"
+  },
+  "author": "XuX",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uoau/utilshub/issues"
+  },
+  "homepage": "https://github.com/uoau/utilshub#readme"
+}
