@@ -1,6 +1,6 @@
 {
   "name": "utilshub",
-  "version": "1.0.0",
+  "version": "1.0.20",
   "description": "",
   "scripts": {
     "build": "node build/package.js",
