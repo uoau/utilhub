@@ -1,6 +1,6 @@
 module.exports = {
     name: 'sleep',
-    title: 'sleep33333333',
+    title: 'sleep4444777',
     titleZh: 'promise 睡眠一段时间',
     desc: '',
     descZh: '',
