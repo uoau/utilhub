@@ -1,17 +1,16 @@
-// Type definitions for [~THE LIBRARY NAME~] [~OPTIONAL VERSION NUMBER~]
-// Project: [~THE PROJECT NAME~]
-// Definitions by: [~YOUR NAME~] <[~A URL FOR YOU~]>
-
-
-export as namespace sleep;
-
-/*~ This declaration specifies that the function
- *~ is the exported object from the file
+/**
+ * @param {object}option 配置
+ * @param {number}[option.time=12] 时间1
+ * @param {number}option.time2 时间2
+ * @param {string}option.name 名字
+ * @returns {object} obj 一个对象一个对象一个对象一个对象
+ * @returns {string} obj.name namenmae
+ * @name sleep
  */
-export = sleep;
-
-declare function sleep(options: {
+export function sleep(option: {
     time: number,
-    name: string
+    time2: number,
+    name?: string
 }): Promise<void>
 
+export function sleep2(time: number): Promise<void>
