@@ -4,12 +4,5 @@ module.exports = {
     titleZh: 'promise 睡眠一段时间',
     desc: '',
     descZh: '',
-    demo: `
-(async () => {
-    console.time('sleep1000');
-    await sleep(1000);
-    console.time('sleep1000');
-})();
-    `,
     tags: ['progress'],
 };
