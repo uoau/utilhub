@@ -3,6 +3,7 @@
  * @param {number}[option.time=12] 时间1
  * @param {number}option.time2 时间2
  * @param {string}option.name 名字
+ * @param {string}[name] 名字2
  * @returns {object} obj 一个对象一个对象一个对象一个对象
  * @returns {string} obj.name namenmae
  * @name sleep
