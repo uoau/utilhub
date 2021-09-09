@@ -1,0 +1,1 @@
+"use strict";function sayHi8(e){console.log("hi".concat(e))}Object.defineProperty(exports,"__esModule",{value:!0}),exports.sayHi8=sayHi8;
