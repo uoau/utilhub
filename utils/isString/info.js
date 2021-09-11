@@ -1,6 +1,5 @@
 module.exports = {
-    name: 'isString',
-    title: '',
-    titleZh: '判断',
+    title: '判断值是否为字符串 (String)',
+    titleZh: 'Check whether the value is string',
     tags: ['type', 'string'],
 };

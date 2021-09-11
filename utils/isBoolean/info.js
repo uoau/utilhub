@@ -1,6 +1,5 @@
 module.exports = {
-    name: 'isBoolean',
-    title: 'say hihi11111',
-    titleZh: '说hihihi',
+    title: '判断值是否为布尔值(Boolean)',
+    titleZh: 'Check whether the value is boolean',
     tags: ['type', 'boolean'],
 };
