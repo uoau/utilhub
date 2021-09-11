@@ -1,5 +1,5 @@
 module.exports = {
-    title: '判断值是否为数字(Number)',
-    titleZh: 'Check whether the value is number',
+    title: 'Check whether the value is number',
+    titleZh: '判断值是否为数字 (Number)',
     tags: ['type', 'number'],
 };

@@ -1,5 +1,5 @@
 module.exports = {
-    title: '判断值是否为布尔值(Boolean)',
-    titleZh: 'Check whether the value is boolean',
+    title: 'Check whether the value is boolean',
+    titleZh: '判断值是否为布尔值 (Boolean)',
     tags: ['type', 'boolean'],
 };

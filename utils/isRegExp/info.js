@@ -1,5 +1,5 @@
 module.exports = {
-    title: '判断值是否为正则对象 (RegExp)',
-    titleZh: 'Check whether the value is RegExp',
+    title: 'Check whether the value is RegExp',
+    titleZh: '判断值是否为正则对象 (RegExp)',
     tags: ['type'],
 };

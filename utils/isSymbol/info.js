@@ -1,5 +1,5 @@
 module.exports = {
-    title: '判断值是否为 Symbol',
-    titleZh: 'Check whether the value is symbol object',
+    title: 'Check whether the value is symbol object',
+    titleZh: '判断值是否为 Symbol',
     tags: ['type'],
 };

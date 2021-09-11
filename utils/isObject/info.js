@@ -1,5 +1,5 @@
 module.exports = {
-    title: '判断值是否为对象(Object)',
-    titleZh: 'Check whether the value is object',
+    title: 'Check whether the value is object',
+    titleZh: '判断值是否为对象 (Object)',
     tags: ['type', 'object'],
 };

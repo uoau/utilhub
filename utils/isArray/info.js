@@ -1,5 +1,5 @@
 module.exports = {
-    title: '判断值是否为数组对象(Array)',
-    titleZh: 'Check whether the value is array',
+    title: 'Check whether the value is array',
+    titleZh: '判断值是否为数组对象(Array)',
     tags: ['type', 'array'],
 };
