@@ -1,6 +1,6 @@
 /**
- * @param {string}content contentcontent
- * @name sayHi9
+ * @param {any}value The value to check.
+ * @name isRegExp
  */
-export function sayHi9(content: string): void
+export function isRegExp(value: any): boolean
 

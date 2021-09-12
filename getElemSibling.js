@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.getElemSibling=getElemSibling;var _getElemSiblings=require("../getElemSiblings");function getElemSibling(e,i){return(0,_getElemSiblings.getElemSiblings)(e,i)[0]}

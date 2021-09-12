@@ -1,0 +1,1 @@
+"use strict";function onElemEvent(e,t,n){}Object.defineProperty(exports,"__esModule",{value:!0}),exports.onElemEvent=onElemEvent;
