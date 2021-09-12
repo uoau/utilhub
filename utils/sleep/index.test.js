@@ -1,6 +1,6 @@
 import { sleep } from './index.js';
 
-test('sleep 1000ms', async () => {
+test('Test sleep', async () => {
     //demostart
     const timeStart = new Date().getTime();
     await sleep(1000);
