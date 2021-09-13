@@ -10,6 +10,7 @@
 | --- | --- | --- | --- |
 | array | chunkArray | 数组分块 | ✅ |
 | array | shuffleArray | 数组乱序 | ✅ |
+| array | uniqArray | 数组去重 | ✅ |
 
 
 #### 待处理的

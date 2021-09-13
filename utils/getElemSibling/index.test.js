@@ -1,6 +1,6 @@
-import { sayHi4 } from './index.js';
+import { getElemSibling } from './index.js';
 
-test('sayHi', async () => {
+test('Test getElemSibling', async () => {
     //demostart
     sayHi4();
     //demoend
