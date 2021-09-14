@@ -1,6 +1,6 @@
 /**
- * @param {any} url The value to check.
- * @param {object} url The value to check.
+ * @param {string} url The url to process.
+ * @param {object} urlObject Parsed object.
  * @name parseUrlQuery
  */
-export function parseUrlQuery(url: string): object
+export function parseUrlQuery(url: string): Object

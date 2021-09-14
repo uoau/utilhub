@@ -1,1 +1,1 @@
-"use strict";function isArray(r){return Array.isArray(r)}Object.defineProperty(exports,"__esModule",{value:!0}),exports.isArray=isArray;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.flattenArray=flattenArray;var _index=require("../deepFlattenArray/index");function flattenArray(e){(0,_index.deepFlattenArray)(e,1)}
