@@ -3,4 +3,4 @@
  * @param {string} selector The value to check.
  * @name getElemSiblings
  */
- export function getElemSiblings(elem: Element): Array
+export function getElemSiblings(elem: Element): Array

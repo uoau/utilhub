@@ -1,5 +1,5 @@
 {
-  "name": "utilshub",
+  "name": "utilhub",
   "version": "1.0.21",
   "description": "",
   "scripts": {
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uoau/utilshub.git"
+    "url": "git+https://github.com/uoau/utilhub.git"
   },
   "author": "XuX",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/uoau/utilshub/issues"
+    "url": "https://github.com/uoau/utilhub/issues"
   },
-  "homepage": "https://github.com/uoau/utilshub#readme",
+  "homepage": "https://github.com/uoau/utilhub#readme",
   "devDependencies": {
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.15.0",

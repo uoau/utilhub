@@ -14,16 +14,16 @@ jobs:
       - name: 克隆 master 分支
         uses: actions/checkout@v2
         with:
-          repository: uoau/utilshub
+          repository: uoau/utilhub
           ref: master
-          path: ./utilshub
+          path: ./utilhub
 
       - name: 克隆 npm 分支
         uses: actions/checkout@v2
         with:
-          repository: uoau/utilshub
+          repository: uoau/utilhub
           ref: npm
-          path: ./utilshub-npm
+          path: ./utilhub-npm
 
       - name: 安装 node
         uses: actions/setup-node@v1
@@ -36,15 +36,15 @@ jobs:
           # 仓库用户名
           REPO_USERNAME: "uoau"
           # GitHub Pages仓库名
-          DIST_REPO: "utilshub"
+          DIST_REPO: "utilhub"
           # GitHub Token
           GITHUB_TOKEN: ${{ secrets.G_TOKEN }}
         run: |
           ls
-          cd utilshub && ls && npm i && npm run build
+          cd utilhub && ls && npm i && npm run build
           git config --global user.email "Action@GitHub.com"
           git config --global user.name "GitHub Action"
-          cd ../utilshub-npm
+          cd ../utilhub-npm
           git init && git add .
           git commit -m "npm branch updated $(date +'%Y-%m-%d %H:%M:%S')"
           git push --force --quiet "https://$GITHUB_TOKEN@github.com/$REPO_USERNAME/$DIST_REPO.git" npm:npm
@@ -52,5 +52,5 @@ jobs:
       - name: 发布npm包
         uses: JS-DevTools/npm-publish@v1
         with:
-          package: ./utilshub-npm/package.json
+          package: ./utilhub-npm/package.json
           token: ${{ secrets.NPM_TOKEN }}

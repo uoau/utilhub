@@ -8,11 +8,11 @@ const babelConfig = require('../babel.config.json');
 
 (async () => {
     // 地址
-    const npmDir = path.join(__dirname, '../../utilshub-npm');
-    const masterDir = path.join(__dirname, '../../utilshub');
+    const npmDir = path.join(__dirname, '../../utilhub-npm');
+    const masterDir = path.join(__dirname, '../../utilhub');
 
     // 打包处理utils函数
-    const utilsDir = path.join(__dirname, '../utils');
+    const utilsDir = path.join(__dirname, '../src');
     const folders = fs.readdirSync(utilsDir);
     for(let i = 0; i< folders.length; i++) {
         const folder = folders[i];
@@ -25,10 +25,10 @@ const babelConfig = require('../babel.config.json');
         const babelIndexJs = uglifyJs.minify(code).code;
 
         // 放进npm分支
-        const utilshubPackage = require(path.join(masterDir, 'package.json'));
-        const utilshubNpmPackage = require(path.join(npmDir, 'package.json'));
-        utilshubNpmPackage.version = utilshubPackage.version;
-        fs.writeFileSync(path.join(npmDir, 'package.json'), JSON.stringify(utilshubNpmPackage, null, 2));
+        const utilhubPackage = require(path.join(masterDir, 'package.json'));
+        const utilhubNpmPackage = require(path.join(npmDir, 'package.json'));
+        utilhubNpmPackage.version = utilhubPackage.version;
+        fs.writeFileSync(path.join(npmDir, 'package.json'), JSON.stringify(utilhubNpmPackage, null, 2));
         fs.writeFileSync(path.join(npmDir, `${funName}.js`), babelIndexJs);
         fs.writeFileSync(path.join(npmDir, `${funName}.d.ts`), indexDts);
     }

@@ -2,7 +2,10 @@
 * 根据分类获取函数
 * 将readme做为首页
 * 指定一套函数命名规则、参数规则
-* 页面需要RUN按钮，查看运行结果
+* 页面需要RUN按钮，查看运行结果 ✅
+* LOGO ✅
+* 详情页换页旧内容清空
+* 举办第一期函数收集大赛
 
 #### 处理完成的
 数组
@@ -11,7 +14,8 @@
 | array | chunkArray | 数组分块 | ✅ |
 | array | shuffleArray | 数组乱序 | ✅ |
 | array | uniqArray | 数组去重 | ✅ |
-
+| date | formatDate | 日期格式化 | ✅ |
+| path | parseUrlQueray | 解析url参数 | ✅ |
 
 #### 待处理的
 | 分类 | 函数名 | 备注 | 完成情况|
