@@ -2,22 +2,9 @@ import { isString } from './index.js';
 
 test('Test isString', async () => {
     //demostart
-    const values = [
-        'utilhub',
-        new String('utilhub'),
-        {},
-        null,
-    ];
-    values.forEach(value => {
-        const is = isString(value);
-        console.log(value, is);
-    });
+    console.log('String', isString('Hello world!'));
+    console.log('String', isString(new String('Hello world!')));
+    console.log('Number', isString(123));
     //demoend
-    const expectResult = [true, true, false, false];
-    const testResult = [];
-    values.forEach(value => {
-        const is = isString(value);
-        testResult.push(is);
-    });
-    expect(expectResult.toString()).toBe(testResult.toString());
+    expect(isString('Hello world!')).toBe(true);
 });

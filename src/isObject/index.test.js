@@ -1,8 +1,13 @@
-import { sayHi3 } from './index.js';
+import { isObject } from './index.js';
 
-test('sayHi3', async () => {
+test('Test isObject', async () => {
     //demostart
-    sayHi3();
+    console.log('Object', isNumber({}));
+    console.log('Object', isNumber(new Object()));
+    console.log('Array', isNumber([]));
+    console.log('Map', isNumber(new Map()));
+    console.log('HtmlElement', isNumber(new HTMLElement()));
+    console.log('Date', isNumber(new Date()));
     //demoend
-    expect(true).toBe(true);
+    expect(isObject({})).toBe(true);
 });

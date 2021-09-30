@@ -1,5 +1,5 @@
 /**
- * @param {any}value The value to check.
- * @name isArray
+ * @param {array}arr The value to check.
+ * @name flattenArray
  */
- export function isArray(value: any): boolean
+export function flattenArray(arr: any[]): any[]

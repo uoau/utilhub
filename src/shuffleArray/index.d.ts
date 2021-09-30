@@ -3,4 +3,4 @@
  * @returns {array} Returns the new array.
  * @name shuffleArray
  */
-export function shuffleArray(arr: Array): Array
+export function shuffleArray(arr: any[]): any[]

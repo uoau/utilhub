@@ -1,9 +1,7 @@
 {
     "editor.tabSize": 4, // tab 为 4 个空格
     "emmet.triggerExpansionOnTab": true,  // 按下 tab 时展开 Emmet 缩写
-    "vetur.completion.autoImport": false,
     "files.trimTrailingWhitespace": true, // 保存文件时删除文件末尾的空格
-    "csscomb.formatOnSave": true,         // 保存文件时自动修复 CSScomb 问题
     "eslint.options": {
         "ignorePattern": [
             "dist",
@@ -11,7 +9,6 @@
             "__build__",
         ]
     },
-    "csscomb.preset": {},
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     },

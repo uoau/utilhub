@@ -1,8 +1,10 @@
-import { sayHi7 } from './index.js';
+import { isSet } from './index.js';
 
-test('sayHi7', async () => {
+test('Test isSet', async () => {
     //demostart
-    sayHi7();
+    console.log('Set', isSet(new Set()));
+    console.log('Array', isSet(new Array()));
+    console.log('Map', isSet(new Map()));
     //demoend
-    expect(true).toBe(true);
+    expect(isSet(new Set())).toBe(true);
 });

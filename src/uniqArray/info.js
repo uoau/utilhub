@@ -1,5 +1,5 @@
 module.exports = {
-    title: 'Unique array',
+    title: 'Unique array.',
     titleZh: '数组去重',
-    tags: ['array'],
+    tags: ['Array'],
 };

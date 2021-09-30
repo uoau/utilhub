@@ -1,8 +1,9 @@
-import { sayHi4 } from './index.js';
+import { flattenArray } from './index.js';
 
-test('sayHi', async () => {
+test('Test flattenArray', async () => {
     //demostart
-    sayHi4();
+    const arr = flattenArray([1,[2,[3,[4,[5]]]]]);
+    console.log(arr);
     //demoend
-    expect(true).toBe(true);
+    expect(arr).toEqual([1,2,[3,[4,[5]]]);
 });

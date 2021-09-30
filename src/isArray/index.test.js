@@ -1,8 +1,12 @@
-import { sayHi4 } from './index.js';
+import { isArray } from './index.js';
 
-test('sayHi', async () => {
+test('Test isArray', async () => {
     //demostart
-    sayHi4();
+    console.log('Array', isArray([]));
+    console.log('Boolean', isArray(true));
+    console.log('Map', isArray(new Map()));
+    console.log('Object', isArray({}));
     //demoend
-    expect(true).toBe(true);
+    expect(isArray([])).toBe(true);
+    expect(isArray({})).toBe(false);
 });

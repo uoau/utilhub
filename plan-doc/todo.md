@@ -1,11 +1,12 @@
 #### 待开发功能
-* 根据分类获取函数
-* 将readme做为首页
+* 根据分类获取函数 ✅
+* 将readme做为首页 ✅
 * 指定一套函数命名规则、参数规则
 * 页面需要RUN按钮，查看运行结果 ✅
 * LOGO ✅
-* 详情页换页旧内容清空
-* 举办第一期函数收集大赛
+* 详情页换页旧内容清空 ✅
+* 完成介绍页
+* 整体格式对齐
 
 #### 处理完成的
 数组
@@ -16,6 +17,7 @@
 | array | uniqArray | 数组去重 | ✅ |
 | date | formatDate | 日期格式化 | ✅ |
 | path | parseUrlQueray | 解析url参数 | ✅ |
+| browser | selectFile | 选择文件 | ✅ |
 
 #### 待处理的
 | 分类 | 函数名 | 备注 | 完成情况|
@@ -75,5 +77,102 @@
 | math |  | 提取系统目录 |  |
 | math |  | 获取数组最大值 |  |
 | math |  | 获取数组最大值 |  |
+
+### 备案
+删除obj里的key
+使用字符串访问属性值    get(obj, 'extra.name');
+删除url里的参数并且不刷新
+缓动
+/**
+ * 平滑滚动到页面顶部
+ *
+ */
+export const scrollToTop = () => {
+    const c = document.documentElement.scrollTop || document.body.scrollTop;
+    if (c > 0) {
+    window.requestAnimationFrame(scrollToTop);
+    window.scrollTo(0, c - c / 8);
+    }
+}
+
+
+获取cookie
+截取字符串并自动加省略号
+
+url 转 Image 对象
+Image 对象 转 Base64
+capitalize：首字母大写
+const capitalize = cached(function (str){
+    return str.charAt(0).toUpperCase() + str.slice(1)
+})
+
+1. distance：返回两点间的距离
+2. httpsRedirect：HTTP 跳转 HTTPS
+const httpsRedirect = () => {
+  if (location.protocol !== 'https:') location.replace('https://' + location.href.split('//')[1]);
+};
+
+
+金钱格式化
+export const formatMoney = num => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+几分钟之前
+/**
+ * 时间戳转换成什么之前
+ *
+ * @param {Number} times 时间戳
+ * @return {String} 返回结果，timeAgoLabel(1606273724459) 输出：刚刚
+ *
+ */
+export const timeAgoLabel = times => {
+  let nowTimes = new Date().getTime()
+  let diffSecond = (nowTimes - times) / 1000
+  let agoLabel = ''
+  if (diffSecond < 60) {
+    agoLabel = '刚刚'
+  } else if (diffSecond < 60 * 60) {
+    agoLabel = Math.floor(diffSecond / 60) + '分钟前'
+  } else if (diffSecond < 60 * 60 * 24) {
+    agoLabel = Math.floor(diffSecond / 3600) + '小时前'
+  } else if (diffSecond < 60 * 60 * 24 * 30) {
+    agoLabel = Math.floor(diffSecond / (3600 * 24)) + '天前'
+  } else if (diffSecond < 3600 * 24 * 30 * 12) {
+    agoLabel = Math.floor(diffSecond / (3600 * 24 * 30)) + '月前'
+  } else {
+    agoLabel = Math.floor(diffSecond / (3600 * 24 * 30 * 12)) + '年前'
+  }
+  return agoLabel
+}
+
+生成uuid
+
+
+树处理
+
+数组比对
+
+生成
+
+防抖
+
+节流
+
+lastIndexOf 最后一个
+
+nth 获取数组
+
+下载文件
+
+toFixed 更安全的
+
+uuid
+
+isEmoji
+
+动态载入js css
+
+并发控制
+
+promise 并发控制器
 
 

@@ -1,5 +1,5 @@
 module.exports = {
-    title: 'Shuffle array',
+    title: 'Shuffle array.',
     titleZh: '乱序数组',
-    tags: ['array'],
+    tags: ['Array'],
 };

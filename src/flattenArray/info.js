@@ -1,5 +1,5 @@
 module.exports = {
-    title: 'Check whether the value is array',
-    titleZh: '判断值是否为数组对象(Array)',
-    tags: ['type', 'array'],
+    title: 'Flattens array a single level deep.',
+    titleZh: '数组扁平化(一层)',
+    tags: ['Array'],
 };

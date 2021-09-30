@@ -1,8 +1,12 @@
-import { sayHi6 } from './index.js';
+import { isUndefined } from './index.js';
 
-test('sayHi6', async () => {
+test('Test isUndefined', async () => {
     //demostart
-    sayHi6();
+    console.log('Undefined', isUndefined(undefined);
+    console.log('Undefined', isUndefined({}.name);
+    console.log('Null', isUndefined(null);
+    console.log('False', isUndefined(false));
+    console.log('String', isUndefined(''));
     //demoend
-    expect(true).toBe(true);
+    expect(isUndefined(undefined)).toBe(true);
 });

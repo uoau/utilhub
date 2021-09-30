@@ -1,8 +1,10 @@
-import { sayHi9 } from './index.js';
+import { isRegExp } from './index.js';
 
-test('sayHi', async () => {
+test('Test isRegExp', async () => {
     //demostart
-    sayHi9();
+    console.log('RegExp', isRegExp(/.*/));
+    console.log('RegExp', isRegExp(new RegExp()));
+    console.log('String', isRegExp('string'));
     //demoend
-    expect(true).toBe(true);
+    expect(isRegExp(/.*/)).toBe(true);
 });

@@ -3,4 +3,4 @@
  * @param {object} urlObject Parsed object.
  * @name parseUrlQuery
  */
-export function parseUrlQuery(url: string): Object
+export function parseUrlQuery(url: string): object

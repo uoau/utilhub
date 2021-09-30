@@ -1,6 +1,7 @@
 /**
- * @param {string} rule The value to check.
- * @returns {number} rule The value to check.
+ * @param {number} start Minimum value of random number.
+ * @param {number} end Maximum value of random number.
+ * @returns {number} Generated random number.
  * @name createRandomNumber
  */
-export function createRandomNumber(rule: string, floatSize: number): number
+export function createRandomNumber(start: number, end: number): number

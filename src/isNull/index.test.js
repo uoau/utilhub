@@ -1,8 +1,10 @@
-import { sayHi5 } from './index.js';
+import { isNull } from './index.js';
 
-test('sayHi5', async () => {
+test('Test isNull', async () => {
     //demostart
-    sayHi5();
+    console.log('Null', isNull(null));
+    console.log('Undefined', isNull(undefined));
+    console.log('False', isNull(false));
     //demoend
-    expect(true).toBe(true);
+    expect(isNull(null)).toBe(true);
 });

@@ -3,4 +3,4 @@
  * @returns {array} Returns the new array.
  * @name uniqArray
  */
-export function uniqArray(arr: array): array
+export function uniqArray(arr: any[]): array

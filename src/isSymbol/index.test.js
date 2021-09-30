@@ -1,8 +1,10 @@
-import { sayHi8 } from './index.js';
+import { isSymbol } from './index.js';
 
-test('sayHi8', async () => {
+test('Test isSymbol', async () => {
     //demostart
-    sayHi8();
+    console.log('Symbol', isSymbol(new Symbol(true));
+    console.log('String', isSymbol('Hello world!'));
+    console.log('Number', isSymbol(123));
     //demoend
-    expect(true).toBe(true);
+    expect(isSymbol(new Symbol(true))).toBe(true);
 });

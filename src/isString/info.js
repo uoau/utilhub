@@ -1,5 +1,5 @@
 module.exports = {
-    title: 'Check whether the value is string',
+    title: 'Check whether the value is string.',
     titleZh: '判断值是否为字符串 (String)',
-    tags: ['type', 'string'],
+    tags: ['Type', 'String'],
 };

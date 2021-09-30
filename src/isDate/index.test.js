@@ -1,8 +1,9 @@
-import { sayHi10 } from './index.js';
+import { isDate } from './index.js';
 
-test('sayHi10', async () => {
+test('Test isDate', async () => {
     //demostart
-    sayHi10();
+    console.log('Date', isDate(new Date()));
+    console.log('String', isDate('2021-03-16'));
     //demoend
-    expect(true).toBe(true);
+    expect(isDate(new Date())).toBe(true);
 });
