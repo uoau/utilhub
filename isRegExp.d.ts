@@ -3,4 +3,3 @@
  * @name isRegExp
  */
 export function isRegExp(value: any): boolean
-

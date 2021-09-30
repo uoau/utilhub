@@ -1,5 +1,6 @@
 /**
- * @param {any}value The value to check.
- * @name isArray
+ * @param {array}arr The value to check.
+ * @param {number}depth The depth.
+ * @name deepFlattenArray
  */
-export function isArray(value: any): boolean
+export function deepFlattenArray(arr: any[], depth: number): any[]

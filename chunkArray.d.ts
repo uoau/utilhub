@@ -4,4 +4,4 @@
  * @returns {array}  Returns the new array of chunks.
  * @name chunkArray
  */
-export function chunkArray(arr: Array, size: Number): Array
+export function chunkArray(arr: any[], size: number): any[]

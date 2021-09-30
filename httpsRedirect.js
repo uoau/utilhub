@@ -1,0 +1,1 @@
+"use strict";function httpsRedirect(){var e=window.location;"https:"!==e.protocol&&e.replace("https://".concat(e.href.split("//")[1]))}Object.defineProperty(exports,"__esModule",{value:!0}),exports.httpsRedirect=httpsRedirect,require("core-js/modules/es.regexp.exec.js"),require("core-js/modules/es.string.replace.js"),require("core-js/modules/es.string.split.js");
