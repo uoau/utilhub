@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.toCDB=toCDB;var CDBMap="";function toCDB(r){for(var t="",e=0;e<r.length;e+=1){var o=r.charCodeAt(e);t+=65281<=o&&o<=65374?String.fromCharCode(r.charCodeAt(e)-65248):12288===o?String.fromCharCode(r.charCodeAt(e)-12288+32):r.charAt(e)}return t}
