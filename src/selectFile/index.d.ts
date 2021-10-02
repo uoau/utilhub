@@ -4,6 +4,7 @@
  * @param {string} options.accept 接受的文件类型
  * @param {boolean} options.multiple 是否可多选文件
  * @param {string} options.capture 设备信息，主要用于移动设备
+ * @returns {array} result 所选文件数组
  * @name selectFile
  */
 export function selectFile(options: {

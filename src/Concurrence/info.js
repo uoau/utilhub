@@ -1,4 +1,6 @@
 module.exports = {
-    title: '',
-    tags: ['Progress'],
+    title: '并发控制器',
+    desc: '控制异步函数的并发数，如一次性需要发送100请求，可以把并发数控制在5，即同一时间只会有5个请求在处理。常用场景：爬虫、批量下载、批量上传等场景。',
+    tags: ['Role'],
+    isClass: true,
 };

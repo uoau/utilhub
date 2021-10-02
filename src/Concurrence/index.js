@@ -14,8 +14,9 @@ class Concurrence {
             });
         };
         this.taskQueue.push(workFn);
-        if (this.current >= this.maxCount) return;
+        if (this.current >= this.maxCount) return this;
         this.runTask();
+        return this;
     }
 
     runTask() {

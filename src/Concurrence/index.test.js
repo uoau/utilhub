@@ -1,11 +1,25 @@
-import { sleep } from './index.js';
+import { Concurrence } from './index.js';
 
-test('Test sleep', async () => {
+test('Test Concurrence', async () => {
     //demostart
-    const timeStart = new Date().getTime();
-    await sleep(1000);
-    const timeEnd = new Date().getTime();
-    console.log(timeEnd - timeStart);
+    function sleep(time) {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve();
+            }, time);
+        });
+    }
+    const cc = new Concurrence(5);
+    let arr = [];
+    for(let i = 0; i< 20; i++) {
+        cc.addTask(async () => {
+            await sleep(2000);
+            arr.push(i);
+            if((i + 1) % 5 === 0) {
+                console.log(arr);
+                arr = [];
+            }
+        })
+    }
     //demoend
-    expect(timeEnd - timeStart > 1000).toBe(true);
 });
