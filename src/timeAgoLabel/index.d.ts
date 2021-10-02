@@ -1,5 +1,5 @@
 /**
- * @param {number} time sleep time
- * @name sleep
+ * @param {any} time Date / 毫秒时间戳 / '2021-03-16'
+ * @name timeAgoLabel
  */
-export function sleep(time: number): Promise<void>
+export function timeAgoLabel(time: number): Promise<void>

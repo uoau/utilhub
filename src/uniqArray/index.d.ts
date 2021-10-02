@@ -1,6 +1,6 @@
 /**
- * @param {array} arr The array to process.
- * @returns {array} Returns the new array.
- * @name uniqArray
+ * @name 数组去重
+ * @param {array} arr 要处理的数组
+ * @returns {array} 去重后数组
  */
 export function uniqArray(arr: any[]): array

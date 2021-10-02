@@ -1,6 +1,6 @@
 /**
- * @param {HTMLElement} elem The value to check.
- * @param {string} selector The value to check.
- * @name getElemSiblings
+ * @name 获取匹配到的多个兄弟元素
+ * @param {HTMLElement} elem dom 对象
+ * @param {string} selector 所要匹配的兄弟元素选择器
  */
-export function getElemSiblings(elem: Element): Array
+export function getElemSiblings(elem: HTMLElement): HTMLElement[]

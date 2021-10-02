@@ -1,14 +1,6 @@
 function formatDate(time, format = 'yyyy-MM-dd hh:mm:ss') {
     if (!time) return null;
-    let value = time;
-    if (typeof value === 'number') {
-        if (String(time).length < 10) {
-            value = new Date().getTime();
-        } else if (String(time).length === 10) {
-            value = time * 1000;
-        }
-    }
-    const date = new Date(value);
+    const date = new Date(time);
     const map = {
         M: date.getMonth() + 1,
         d: date.getDate(),

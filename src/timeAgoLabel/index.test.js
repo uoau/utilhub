@@ -1,11 +1,11 @@
-import { sleep } from './index.js';
+import { timeAgoLabel } from './index.js';
 
-test('Test sleep', async () => {
+test('Test timeAgoLabel', async () => {
     //demostart
-    const timeStart = new Date().getTime();
+    const time = new Date().getTime();
     await sleep(1000);
-    const timeEnd = new Date().getTime();
-    console.log(timeEnd - timeStart);
+    const agoLabel = timeAgoLabel(time);
+    console.log(agoLabel);
     //demoend
-    expect(timeEnd - timeStart > 1000).toBe(true);
+    expect(agoLabel).toBe('刚刚');
 });

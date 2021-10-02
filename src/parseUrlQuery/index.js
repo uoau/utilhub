@@ -1,5 +1,5 @@
 function parseUrlQuery(url) {
-    const dealUrl = (url || globalThis.location.href);
+    const dealUrl = (url || (globalThis.location && globalThis.location.href) || '');
     const search = dealUrl.substring(dealUrl.lastIndexOf('?') + 1);
     return search.split('&').reduce((obj, item) => {
         const res = obj;

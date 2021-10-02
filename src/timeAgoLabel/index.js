@@ -1,6 +1,8 @@
-function timeAgoLabel(times) {
-    const nowTimes = new Date().getTime();
-    const diffSecond = (nowTimes - times) / 1000;
+function timeAgoLabel(time) {
+    if (!time) return '';
+    const nowTime = new Date().getTime();
+    const oTime = new Date(time).getTime();
+    const diffSecond = (nowTime - oTime) / 1000;
     let agoLabel = '';
     if (diffSecond < 60) {
         agoLabel = '刚刚';
