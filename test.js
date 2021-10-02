@@ -1,12 +1,55 @@
-import { EventEmitter } from './src/EventEmitter';
-import { chunkArray } from './src/chunkArray';
+const { parse } = require('comment-parser');
 
-const e = new EventEmitter();
+const { chunkArray } = require('./src/chunkArray');
+const { EventEmitter } = require('./src/eventEmitter');
 
-e.on('close', () => {
+const res = parse(`
+/**
+ * @name 事件发射器
+ */
+ export class EventEmitter {
+    /**
+     * 这是一句话
+     * @name 事件发射器
+     */
+    constructor();
+    readonly eventCount: number;
+    readonly events: array;
 
-});
+    /**
+     * @name 设置监听
+     * @param {string} eventName 事件名
+     * @param {function} listener 监听函数
+     */
+    on(eventName: string, listener: Function): EventEmitter;
 
-e.emit('close', 123, 123, 444);
+    /**
+     * @name 触发事件
+     * @param {string} eventName 事件名
+     * @param {any} args 要传递给监听函数的参数
+     */
+    emit(eventName: string, ...args: any[]): EventEmitter;
 
-chunkArray();
+    /**
+     * @name 注销某个事件下的监听函数
+     * @param {string} eventName 事件名
+     * @param {function} listener 原监听函数
+     */
+    off(eventName: string, listener: Function): EventEmitter;
+
+    /**
+     * @name 获取所有注册的事件
+     * @param {string} eventName 事件名
+     * @param {function} listener 监听函数
+     */
+    eventNames(): string[];
+
+    /**
+     * @name 获取某个事件下的所有监听函数
+     * @param {string} eventName 事件名
+     * @param {function} listener 监听函数
+     */
+    listeners(eventName): Function[];
+}
+`);
+console.log(res);
