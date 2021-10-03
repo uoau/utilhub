@@ -19,7 +19,6 @@ const babelConfig = require('../babel.config.json');
         const funName = folder;
         // 文件内容
         const indexjs = fs.readFileSync(path.join(utilsDir, folder, 'index.js'), 'utf-8');
-        // const indexjson = fs.readFileSync(path.join(utilsDir, folder, 'index.json'), 'utf-8');
         const indexDts = fs.readFileSync(path.join(utilsDir, folder, 'index.d.ts'), 'utf-8');
         const { code } = await babel.transformSync(indexjs, babelConfig);
         const babelIndexJs = uglifyJs.minify(code).code;

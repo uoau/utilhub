@@ -5,7 +5,7 @@ function selectFile(options) {
             multiple: false,
             capture: '',
         };
-        const { accept, multiple, capture } = { ...defaultOptions, ...options };
+        const { accept, multiple, capture } = { ...defaultOptions, ...(options || {}) };
         // Create a input element.
         const input = document.createElement('input');
         input.type = 'file';
